@@ -1,63 +1,52 @@
 package br.com.fiap.main;
 
-
-
 import javax.swing.JOptionPane;
 
-
-import br.com.fiap.bean.DocBike;
-import br.com.fiap.bean.DocCliente;
-import br.com.fiap.bean.EscolheSeguro;
+import br.com.fiap.bean.RegistroSeguro;
 import br.com.fiap.bean.Feedback;
-import br.com.fiap.bean.FotoBike;
-import br.com.fiap.bean.TipoSeguro;
-import br.com.fiap.bean.VideoBike;
 
 public class UsaTechnobike {
 
 	public static void main(String[] args) {
-		int opcMenu = 0;
-		int opcDocuments = 0;
-		int opcDocumentsBike = 0;
-		String aux;
-		String assinatura;
-		String escolha = "sim";
-		int confirApolice;
+		int opcaoMenu = 0;
 		int mostrarStatus;
-		String confirmacao = "sim";
-		TipoSeguro tpSeguro = new TipoSeguro();
-		EscolheSeguro tpseg = new EscolheSeguro();
+		String aux;
+		String escolha = "sim";
+		
+		RegistroSeguro tpseg = new RegistroSeguro();
 		Feedback fb = new Feedback();
-		DocCliente docCli = new DocCliente(); 
-		DocBike docBike = new DocBike();
-		FotoBike ftBike = new FotoBike();
-		VideoBike vdBike = new VideoBike();
 		
 		while (escolha.equalsIgnoreCase("sim")) {	
 			try {
-				
-				aux = JOptionPane.showInputDialog("Olá, em que a Technobike pode te ajudar hoje?" + "\n1 - Conheça nossos tipos de seguro para a bike"
-													+ "\n2 - Iniciar processo de vistoria" + "\n3 - Feedback" +  "\n4 - Status da vistoria" + 
-													"\n5 - Encerrar");
-				opcMenu = Integer.parseInt(aux);
-				if (opcMenu < 1 || opcMenu > 7) {
-					JOptionPane.showMessageDialog(null, "Não é uma opção válida!");
-					break;
-				}
+				aux = JOptionPane.showInputDialog("Olá, em que a Technobike pode te ajudar?" 
+												+ "\n1 - Tipos de seguro"
+												+ "\n2 - Iniciar processo de vistoria" 
+												+ "\n3 - Conferir status da vistoria" 
+												+ "\n4 - Feedback" 
+												+ "\n5 - Encerrar");
+				opcaoMenu = Integer.parseInt(aux);
 				
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Resposta inválida!");
 			}
 			 
-			switch (opcMenu) {
+			switch (opcaoMenu) {
 
-			//Mostrar tipo de seguro
+			//Tipos de seguro
 			case 1:
-				tpSeguro.mostrarSeguro();
+				JOptionPane.showMessageDialog(null, "Essas são as opções de seguro disponibilizadas pela nossa empresa"
+												+ "\n1- Para ciclistas que pedalam na rua"
+												+ "\n2- Para ciclistas de maratona"
+												+ "\n3- Para ciclistas que pedalam em montanhas"
+												+ "\n4- Para ciclistas que pedalam em pedras e rochas"
+												+ "\n5- Para ciclistas que pedalam em terra e mato"
+												+ "\n6- Para ciclistas por hobbie"
+												+ "\n7- Para ciclistas que viajam com a bike");
 				break;
-			//Iniciar vistoria	
+				
+				
+			//Iniciar processo de vistoria	
 			case 2:
-
 				JOptionPane.showMessageDialog(null, "Informe seus dados");
 				ftBike.confirmarArquivo();
 				vdBike.confirmarArquivo();
@@ -73,19 +62,18 @@ public class UsaTechnobike {
 					JOptionPane.showMessageDialog(null, "Ok. Acompanhe no seu email ou nessa tela o atual status da sua vistoria para saber as informações de como prosseguir.");
 				}
 				break;
-
-			
+		
 				
-			//Feedback
+			//Conferir status da vistoria
 			case 3:
+				
+					
+			//Feedback
+			case 4: 
 				fb.enviaFeedback();
 				break;
-				
-			//Status	
-			case 4: 
-				
-				
 			
+				
 			//Encerrar
 			case 5:
 				escolha = JOptionPane.showInputDialog("Deseja continuar? ");

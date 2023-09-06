@@ -2,7 +2,7 @@ package br.com.fiap.bean;
 
 import javax.swing.JOptionPane;
 
-public class EscolheSeguro {
+public class RegistroSeguro {
 	private int opcSeguro;
 	int confirTpSeguro = 2;
 	String aux;
@@ -14,7 +14,7 @@ public class EscolheSeguro {
 	String tpSeg6 = "6- Para ciclistas por hobbie";
 	String tpSeg7 = "7- Para ciclistas que viajam com a bike";
 
-	public EscolheSeguro() {
+	public RegistroSeguro() {
 	}
 
 	public int getOpcSeguro() {

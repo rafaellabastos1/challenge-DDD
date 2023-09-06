@@ -1,30 +1,30 @@
-package br.com.fiap.bean;
+package br.com.fiap.teste;
 
 import javax.swing.JOptionPane;
 
-public class FotoBike {
-	private String nomeFoto;
+public class VideoBike {
+	private String nomeVideo;
 	String aux;
 	int confirFoto = 2;
-	public FotoBike() {
+	public VideoBike() {
 	}
 
 	public String getNomeFoto() {
-		return nomeFoto;
+		return nomeVideo;
 	}
 
 	public void setNomeFoto(String nomeFoto) {
-		this.nomeFoto = nomeFoto;
+		this.nomeVideo = nomeFoto;
 	}
 	
 	public void confirmarArquivo() {
 		while (confirFoto == 2) {
 			try {
-				nomeFoto = JOptionPane.showInputDialog("Informe o vídeo da bike: ");
-				aux = JOptionPane.showInputDialog("Está correto?" + "\n" + nomeFoto + "\n1 - Sim \n2 - Não");
+				nomeVideo = JOptionPane.showInputDialog("Informe a foto dos documentos da bike: ");
+				aux = JOptionPane.showInputDialog("Está correto?" + "\n" + nomeVideo + "\n1 - Sim \n2 - Não");
 				confirFoto = Integer.parseInt(aux);
 				if (confirFoto == 1) {
-					JOptionPane.showMessageDialog(null, "Vídeo adicionado!");
+					JOptionPane.showMessageDialog(null, "Foto adicionada!");
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Envie novamente a foto");
