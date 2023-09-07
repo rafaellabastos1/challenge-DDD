@@ -4,14 +4,6 @@ import javax.swing.JOptionPane;
 
 public class RegistroSeguro {
 	private int opcSeguro;
-	
-	String tpSeg1 = "1- Para ciclistas que pedalam na rua";
-	String tpSeg2 = "2- Para ciclistas de maratona";
-	String tpSeg3 = "3- Para ciclistas que pedalam em montanhas";
-	String tpSeg4 = "4- Para ciclistas que pedalam em pedras e rochas";
-	String tpSeg5 = "5- Para ciclistas que pedalam em terra e mato";
-	String tpSeg6 = "6- Para ciclistas por hobbie";
-	String tpSeg7 = "7- Para ciclistas que viajam com a bike";
 
 	//Construtor vazio
 	public RegistroSeguro() {
@@ -30,7 +22,17 @@ public class RegistroSeguro {
 	//Método
 	public void selecionaSeguro() {
 		int confirTpSeguro = 2;
+		
+		String tpSeg1 = "1- Para ciclistas que pedalam na rua";
+		String tpSeg2 = "2- Para ciclistas de maratona";
+		String tpSeg3 = "3- Para ciclistas que pedalam em montanhas";
+		String tpSeg4 = "4- Para ciclistas que pedalam em pedras e rochas";
+		String tpSeg5 = "5- Para ciclistas que pedalam em terra e mato";
+		String tpSeg6 = "6- Para ciclistas por hobbie";
+		String tpSeg7 = "7- Para ciclistas que viajam com a bike";
+		
 		String aux;
+		
 			if (opcSeguro == 1) {
 				aux = JOptionPane.showInputDialog(null, "O tipo de seguro está correto?" 
 													+ "\nSeguro escolhido: " + tpSeg1 
