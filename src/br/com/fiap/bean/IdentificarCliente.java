@@ -22,7 +22,8 @@ public class IdentificarCliente {
 	//Método
 	//A fazer: tem que fazer a verificação se o cpf digitado está no sistema (tem que retornar sempre true)
 	public void encontrarCliente() {
-		if (cpf == true) {
+		boolean cpfEncontrado;
+		if (cpfEncontrado == true) {
 			JOptionPane.showMessageDialog(null, "Olá, seja bem vindo");
 		} else {
 			JOptionPane.showMessageDialog(null, "CPF não encontrado. Faça seu cadastro e contrate um seguro para sua bike!");

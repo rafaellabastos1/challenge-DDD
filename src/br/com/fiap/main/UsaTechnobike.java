@@ -3,6 +3,7 @@ package br.com.fiap.main;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.bean.RegistroSeguro;
+import br.com.fiap.bean.StatusVistoria;
 import br.com.fiap.bean.Feedback;
 import br.com.fiap.bean.IdentificarCliente;
 import br.com.fiap.bean.MidiaVistoria;
@@ -20,8 +21,8 @@ public class UsaTechnobike {
 		IdentificarCliente identCli;
 		MidiaVistoria arqVis;
 		RegistroSeguro regSeg;
-		//RegistroSeguro tpseg = new RegistroSeguro();
-		//Feedback fb = new Feedback();
+		StatusVistoria andamento;
+		
 		
 		while (escolha.equalsIgnoreCase("sim")) {	
 			try {
@@ -74,22 +75,23 @@ public class UsaTechnobike {
 				regSeg = new RegistroSeguro();
 				regSeg.selecionaSeguro();
 				
+				//Receber as mídias da vistoria
+				JOptionPane.showMessageDialog(null, "Para finalizar a vistoria é necessário que sejam tiradas: "  
+			            						+ "\n-Foto da bike inteira de lado"
+			            						+ "\n-Foto do número de série"
+			            						+ "\n-Foto da roda"
+			            						+ "\n-Foto dos freios"
+			            						+ "\n-Foto do guidão"
+			            						+ "\n-Foto dos pedais"
+			            						+ "\n-Foto da corrente"
+			            						+ "\n-Foto sua com a bike"
+			            						+ "\n-Foto da bike de frente"
+			            						+ "\n-Foto dos acessórios (se for visível)"
+			            						+ "\n-Vídeo mostrando a bike completa"
+			            						+ "\n-Vídeo mostrando com mais ênfase cada ponto chave que foi tirado foto");
+				JOptionPane.showMessageDialog(null, "\nObservação: neste momento, como ainda não é possível enviar fotos e vídeos," 
+													+ "essa parte não é totalmente funcional");
 				
-				
-				//JOptionPane.showMessageDialog(null, "Escolha o tipo de seguro");
-				//tpseg.selecionaSeguro();
-				//aux = JOptionPane.showInputDialog("Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status da análise pelo seu e-mail ou aqui pelo site." 
-				//								+ "Deseja conferir o status da análise da vistoria? \n1 - Sim \n2 - Não");
-				//mostrarStatus = Integer.parseInt(aux);
-				//if (mostrarStatus == 1) {	
-				//} else {
-				//	JOptionPane.showMessageDialog(null, "Ok. Acompanhe no seu email ou nessa tela o atual status da sua vistoria para saber as informações de como prosseguir.");
-				//}
-				//break;
-		
-				
-			//Conferir status da vistoria
-			case 3:
 				JOptionPane.showMessageDialog(null, "Aviso: ainda não é possível enviar, de fato, arquivos");
 				bikeInteira = JOptionPane.showInputDialog("Envie a foto da bike inteira: "
 											+ "(digite ok para confirmar o envio)");
@@ -117,6 +119,30 @@ public class UsaTechnobike {
 											+ "(digite ok para confirmar o envio)");
 				
 				arqVis = new MidiaVistoria();
+				arqVis.confirmarArquivo();
+				
+				//Segmento
+				JOptionPane.showMessageDialog(null, "Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status" 
+													+ " da análise pelo seu e-mail ou aqui pelo site.");
+				aux = JOptionPane.showInputDialog("Deseja conferir o status da análise da vistoria?" 
+												+ "\n1. Sim" 
+												+ "\n2. Não");
+				mostrarStatus = Integer.parseInt(aux);
+				
+				if (mostrarStatus == 1) {
+					andamento = new StatusVistoria();
+					andamento.resultado();
+				} else if (mostrarStatus == 2) {
+					JOptionPane.showMessageDialog(null, "Ok. Acompanhe no seu e-mail ou nessa tela o atual status da sua vistoria para" 
+														+ "saber as informações de como prosseguir!");
+				} else {
+					JOptionPane.showMessageDialog(null, "Opção incorreta");
+				}
+		
+				
+			//Conferir status da vistoria
+			case 3:
+
 				
 					
 			//Feedback

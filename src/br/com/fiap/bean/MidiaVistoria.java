@@ -117,7 +117,7 @@ public class MidiaVistoria {
 	}
 	
 	//Método
-	confirmarArquivo(){
+	public void confirmarArquivo(){
 		
 	}
 	
