@@ -56,7 +56,7 @@ public class Feedback {
 	}
 	
 	public void enviarFeedback() {
-		int opcFeedback, confirFeedback;
+		int opcFeedback, confirFeedback; 
 			if (opcFeedback == 1 ) {
 				if (confirFeedback == 1) {
 					JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
