@@ -11,17 +11,19 @@ import br.com.fiap.bean.MidiaVistoria;
 public class UsaTechnobike {
 
 	public static void main(String[] args) {
-		int opcaoMenu = 0, mostrarStatus, opcSeguro;
+		int opcaoMenu = 0, mostrarStatus, opcSeguro, opcFeedback, confirFeedback;
 		String aux, escolha = "sim", cpf;
 		
 		String bikeInteira, numSerie, roda, freios, guidao, pedais, corrente, clienteBike, bikeFrente, acessorios;
 		String videoBike, videoPartes;
 		Boolean aprovado = false, reprovado = false, emAnalise = true, faltandoDoces = false;
+		String tempo, servicos, problemas, atendimentos, duvidas;
 		
 		IdentificarCliente identCli;
 		MidiaVistoria arqVis;
 		RegistroSeguro regSeg;
 		StatusVistoria andamento;
+		Feedback opiniao;
 		
 		
 		while (escolha.equalsIgnoreCase("sim")) {	
@@ -138,16 +140,81 @@ public class UsaTechnobike {
 				} else {
 					JOptionPane.showMessageDialog(null, "Opção incorreta");
 				}
+				
+				break;
 		
 				
 			//Conferir status da vistoria
 			case 3:
-
+				//Identificar cliente
+				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+				
+				identCli = new IdentificarCliente();
+				identCli.encontrarCliente();
+				
+				//Status da vistoria
+				andamento = new StatusVistoria();
+				andamento.resultado();
+				
+				break;
 				
 					
 			//Feedback
 			case 4: 
-				fb.enviaFeedback();
+				aux = JOptionPane.showInputDialog("Qual o motivo do feedback?" 
+												+ "\n1. Tempo"
+												+ "\n2. Serviços"
+												+ "\n3. Problemas"
+												+ "\n4. Atendimentos"
+												+ "\n5. Dúvidas");
+				opcFeedback = Integer.parseInt(aux);
+				try {
+					//Tempo
+					tempo = JOptionPane.showInputDialog("Digite seu feedback");
+					aux = JOptionPane.showInputDialog("O feedback está correto?" 
+													+ "\n" + tempo 
+													+ "\n1. Sim "
+													+ "\n2. Não");
+					confirFeedback = Integer.parseInt(aux);
+					
+					//Serviços
+					servicos = JOptionPane.showInputDialog("Digite seu feedback");
+					aux = JOptionPane.showInputDialog("O feedback está correto?" 
+													+ "\n" + servicos 
+													+ "\n1. Sim "
+													+ "\n2. Não");
+					confirFeedback = Integer.parseInt(aux);
+					
+					//Problemas
+					problemas = JOptionPane.showInputDialog("Digite seu feedback");
+					aux = JOptionPane.showInputDialog("O feedback está correto?" 
+													+ "\n" + problemas 
+													+ "\n1. Sim "
+													+ "\n2. Não");
+					confirFeedback = Integer.parseInt(aux);
+				
+					//Atendimentos
+					atendimentos = JOptionPane.showInputDialog("Digite seu feedback");
+					aux = JOptionPane.showInputDialog("O feedback está correto?" 
+													+ "\n" + atendimentos 
+													+ "\n1. Sim "
+													+ "\n2. Não");
+					confirFeedback = Integer.parseInt(aux);
+					
+					//Dúvidas
+					duvidas = JOptionPane.showInputDialog("Digite seu feedback");
+					aux = JOptionPane.showInputDialog("O feedback está correto?" 
+													+ "\n" + duvidas 
+													+ "\n1. Sim "
+													+ "\n2. Não");
+					confirFeedback = Integer.parseInt(aux);
+					
+					opiniao = new Feedback();
+					opiniao.enviarFeedback();
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				
 				break;
 			
 				
