@@ -7,7 +7,7 @@ import br.com.fiap.bean.IdentificarCliente;
 
 public class CpfDAO {
 	private Connection con;
-	
+
 	public CpfDAO(Connection con) {
 		setCon(con);
 	}
@@ -20,9 +20,9 @@ public class CpfDAO {
 		this.con = con;
 	}
 
-  public String inserir(IdentificarCliente ic) {
-	  String sql = "insert into ic(cpf)values(?)";
-    try {
+	public String inserir(IdentificarCliente ic) {
+		String sql = "insert into ic(cpf)values(?)";
+		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
 			ps.setString(1, ic.getCpf());
 			if (ps.executeUpdate() > 0) {
@@ -34,7 +34,5 @@ public class CpfDAO {
 			return e.getMessage();
 		}
 	}
-	
-	
-		
+
 }
