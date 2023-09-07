@@ -223,20 +223,15 @@ public class UsaTechnobike {
 				escolha = JOptionPane.showInputDialog("Deseja continuar? ");
 				if (escolha.equalsIgnoreCase("Sim")) {
 					JOptionPane.showMessageDialog(null, "Voltando ao menu");
-				}
-				else {
-				JOptionPane.showMessageDialog(null, "Encerrando, até logo!");
+				} else {
+					JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 				}
 				break;
 				
+			//Opção inválida
 			default:
 				JOptionPane.showMessageDialog(null, "Digite uma opção válida");
-				
-			
-
-			
-
+			}
 		}
 	}
-}
 }
