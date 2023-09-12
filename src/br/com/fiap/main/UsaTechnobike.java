@@ -94,37 +94,23 @@ public class UsaTechnobike {
 			            						+ "\n-Foto dos acessórios (se for visível)"
 			            						+ "\n-Vídeo mostrando a bike completa"
 			            						+ "\n-Vídeo mostrando com mais ênfase cada ponto chave que foi tirado foto");
-				JOptionPane.showMessageDialog(null, "\nObservação: neste momento, como ainda não é possível enviar fotos e vídeos," 
-													+ "essa parte não é totalmente funcional");
 				
 				JOptionPane.showMessageDialog(null, "Aviso: ainda não é possível enviar, de fato, arquivos");
-				bikeInteira = JOptionPane.showInputDialog("Envie a foto da bike inteira: "
-											+ "(digite ok para confirmar o envio)");
-				numSerie = JOptionPane.showInputDialog("Envie a foto do número de série: "
-											+ "(digite ok para confirmar o envio)");
-				roda = JOptionPane.showInputDialog("Envie a foto das rodas: "
-											+ "(digite ok para confirmar o envio)");
-				freios = JOptionPane.showInputDialog("Envie a foto dos freios: "
-											+ "(digite ok para confirmar o envio)");
-				guidao = JOptionPane.showInputDialog("Envie a foto do guidão: "
-											+ "(digite ok para confirmar o envio)");
-				pedais = JOptionPane.showInputDialog("Envie a foto dos pedais: "
-											+ "(digite ok para confirmar o envio)");
-				corrente = JOptionPane.showInputDialog("Envie a foto da corrente: "
-											+ "(digite ok para confirmar o envio)");
-				clienteBike = JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "
-											+ "(digite ok para confirmar o envio)");
-				bikeFrente = JOptionPane.showInputDialog("Envie uma foto da bike de frente: "
-											+ "(digite ok para confirmar o envio)");
-				acessorios = JOptionPane.showInputDialog("Envie uma foto dos acessórios: "
-											+ "(digite ok para confirmar o envio)");
-				videoBike = JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "
-											+ "(digite ok para confirmar o envio)");
-				videoPartes = JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "
-											+ "(digite ok para confirmar o envio)");
 				
 				arqVis = new MidiaVistoria();
-				arqVis.confirmarArquivo();
+				
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da bike inteira: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do número de série: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto das rodas: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos freios: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do guidão: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos pedais: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da corrente: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto da bike de frente: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto dos acessórios: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "));
 				
 				//Segmento
 				JOptionPane.showMessageDialog(null, "Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status" 

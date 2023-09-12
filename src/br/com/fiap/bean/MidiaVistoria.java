@@ -1,5 +1,7 @@
 package br.com.fiap.bean;
 
+import javax.swing.JOptionPane;
+
 public class MidiaVistoria {
 	private String bikeInteira;
 	private String numSerie;
@@ -117,7 +119,12 @@ public class MidiaVistoria {
 	}
 	
 	//Método
-	public void confirmarArquivo(){
-		
+	public void confirmarArquivo(String arquivoRecebido){
+		if (arquivoRecebido != "nao") {
+			JOptionPane.showMessageDialog(null, "Arquivo recebido");
+		} else {
+			JOptionPane.showMessageDialog(null, "Arquivo não recebido. Tente novamente");
+		}	
 	}
 }
+
