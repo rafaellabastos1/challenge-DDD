@@ -11,13 +11,20 @@ import br.com.fiap.bean.MidiaVistoria;
 public class UsaTechnobike {
 
 	public static void main(String[] args) {
-		int opcaoMenu = 0, mostrarStatus, opcSeguro, opcFeedback, confirFeedback;
-		String aux, escolha = "sim", cpf;
+		int opcaoMenu = 0;
+		int mostrarStatus;
 		
-		String bikeInteira, numSerie, roda, freios, guidao, pedais, corrente, clienteBike, bikeFrente, acessorios;
-		String videoBike, videoPartes;
-		Boolean aprovado = false, reprovado = false, emAnalise = true, faltandoDoces = false;
-		String tempo, servicos, problemas, atendimentos, duvidas;
+		int opcSeguro;
+		
+		String aux;
+		String escolha = "sim";
+		String cpf;
+		
+		String tempo;
+		String servicos;
+		String problemas;
+		String atendimentos;
+		String duvidas;
 		
 		IdentificarCliente identCli;
 		MidiaVistoria arqVis;
@@ -112,6 +119,7 @@ public class UsaTechnobike {
 				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "));
 				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "));
 				
+				
 				//Segmento
 				JOptionPane.showMessageDialog(null, "Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status" 
 													+ " da análise pelo seu e-mail ou aqui pelo site.");
@@ -174,6 +182,11 @@ public class UsaTechnobike {
 					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
 					
 					opiniao = new Feedback();
+					opiniao.setTempo(tempo);
+					opiniao.setServicos(servicos);
+					opiniao.setProblemas(problemas);
+					opiniao.setAtendimentos(atendimentos);
+					opiniao.setDuvidas(duvidas);
 					opiniao.enviarFeedback();
 					
 				} catch (Exception e) {

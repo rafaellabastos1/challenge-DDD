@@ -37,10 +37,8 @@ public class Vistoria {
 	
 	//Método
 	public void analisarFotos() {
-		
+		cliente = new IdentificarCliente();
+		seguro = new RegistroSeguro();
+		fotos = new MidiaVistoria();
 	}
-	 
-	
-	
-	
 }
