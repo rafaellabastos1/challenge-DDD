@@ -6,7 +6,7 @@ import java.sql.*;
  * @author Douglas Araujo
  * @version 1.0
  */
-
+ 
 public class Conexao {
 
 	public static Connection abrirConexao() {
