@@ -75,30 +75,7 @@ public class Feedback {
 	
 	//Métodos
 	public void enviarFeedback() {
-		if (confirFeedback == 1) {
-			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-		} else {
-			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-		}
-		if (confirFeedback == 1) {
-			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-		} else {
-			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-		}
-		if (confirFeedback == 1) {
-			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-		} else {
-			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-		}
-		if (confirFeedback == 1) {
-			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-		} else {
-			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-		}
-		if (confirFeedback == 1) {
-			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-		} else {
-			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-		}
+		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
 	}
 }
+

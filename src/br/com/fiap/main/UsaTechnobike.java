@@ -139,6 +139,7 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
 				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
 				identCli.encontrarCliente();
 				
 				//Status da vistoria
@@ -150,49 +151,31 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
+				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+
+				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
+				identCli.encontrarCliente();
+				
 				try {
 					//Tempo
 					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\nSeu feedback: " + tempo 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
 					
 					//Serviços
 					servicos = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\nSeu feedback: " + servicos 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
 					
 					//Problemas
 					problemas = JOptionPane.showInputDialog("Digite seu feedback para problemas");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\nSeu feedback: " + problemas 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
-				
+
 					//Atendimentos
 					atendimentos = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\nSeu feedback: " + atendimentos 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
-					
+
 					//Dúvidas
 					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\nSeu feedback: " + duvidas 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
 					
 					opiniao = new Feedback();
 					opiniao.enviarFeedback();
+					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
