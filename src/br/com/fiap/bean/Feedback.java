@@ -2,14 +2,18 @@ package br.com.fiap.bean;
 
 import javax.swing.JOptionPane;
 
+/*** Classe com atributos e métodos sobre os feedbacks que o cliente dará
+ * Atributos sobre os tipos de feedbacks e método que envia o feedback
+ * @author Rafaella Bastos
+ * @version 3.0
+ */
+
 public class Feedback {
 	private String tempo;
 	private String servicos;
 	private String problemas;
 	private String atendimentos;
 	private String duvidas;
-	private int opcFeedback;
-	private int confirFeedback;
 
 	// Construtor vazio
 	public Feedback() {
@@ -56,22 +60,10 @@ public class Feedback {
 	public void setDuvidas(String duvidas) {
 		this.duvidas = duvidas;
 	}
-
-	public int getOpcFeedback() {
-		return opcFeedback;
-	}
-
-	public void setOpcFeedback(int opcFeedback) {
-		this.opcFeedback = opcFeedback;
-	}
-
-	public int getConfirFeedback() {
-		return confirFeedback;
-	}
-
-	public void setConfirFeedback(int confirFeedback) {
-		this.confirFeedback = confirFeedback;
-	}
+	
+	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
+	 * @author Rafaella Bastos
+	 */
 	
 	//Métodos
 	public void enviarFeedback() {

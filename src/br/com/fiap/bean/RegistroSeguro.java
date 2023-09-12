@@ -2,6 +2,12 @@ package br.com.fiap.bean;
 
 import javax.swing.JOptionPane;
 
+/*** Classe com atributos e métodos sobre o tipo de seguro escolhido pelo usuário
+ * Atributos sobre os tipos de seguro que o cliente pode escolher
+ * @author Luiz Fillipe
+ * @version 3.0
+ */
+
 public class RegistroSeguro {
 	private int opcSeguro;
 
@@ -20,6 +26,10 @@ public class RegistroSeguro {
 	}
 	
 	//Método
+	/*** Método seleciona seguro que recebe o tipo de seguro escolhido pelo usuário e verifica se ele escolheu certo
+	 * @author Rafaella Bastos
+	 */
+
 	public void selecionaSeguro() {
 		int confirTpSeguro = 2;
 

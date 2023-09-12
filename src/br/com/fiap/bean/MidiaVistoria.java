@@ -2,6 +2,11 @@ package br.com.fiap.bean;
 
 import javax.swing.JOptionPane;
 
+/*** Classe com atributos e métodos sobre os arquivos que serão enviados para análise
+ * @author Igor Ribeiro
+ * @version 2.0
+ */
+
 public class MidiaVistoria {
 	private String bikeInteira;
 	private String numSerie;
@@ -117,6 +122,11 @@ public class MidiaVistoria {
 	public void setVideoPartes(String videoPartes) {
 		this.videoPartes = videoPartes;
 	}
+	
+	/*** Método confirmar arquivo que confirma se o usuário enviou ou não
+	 * No momento ainda não é possível enviar, de fato, os arquivos
+	 * @author Igor Ribeiro
+	 */
 	
 	//Método
 	public void confirmarArquivo(String arquivoRecebido){

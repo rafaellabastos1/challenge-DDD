@@ -2,6 +2,12 @@ package br.com.fiap.bean;
 
 import javax.swing.JOptionPane;
 
+/*** Classe com atributos e métodos sobre o status da vistoria
+ * Atributos sobre os tipos de status que o cliente pode receber
+ * @author Luiz Fillipe
+ * @version 3.0
+ */
+
 public class StatusVistoria {
 	private boolean faltaDocs = false;
 	private boolean aprovado = false;
@@ -47,6 +53,12 @@ public class StatusVistoria {
 	}
 	
 	//Métodos
+	
+	/*** Método resultado que verifica o atual status da vistoria
+	 * No momento, sempre retornará que está em análise, já que ainda não tem como analisar as fotos
+	 * @author Luiz Fillipe
+	 */
+	
 	public void resultado() {
 		if (faltaDocs == true) {
 			JOptionPane.showMessageDialog(null, "Estão faltando arquivos na vistoria! Olhe novamente");

@@ -2,6 +2,12 @@ package br.com.fiap.dao;
 
 import java.sql.*;
 
+/*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
+ * Atributos sobre o cpf informado pelo usuário
+ * @author Douglas Araujo
+ * @version 1.0
+ */
+
 import br.com.fiap.bean.IdentificarCliente;
 
 public class CpfDAO {
