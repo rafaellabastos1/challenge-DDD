@@ -39,7 +39,7 @@ public class Vistoria {
 	public void analisarFotos() {
 		
 	}
-	
+	 
 	
 	
 	

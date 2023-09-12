@@ -161,50 +161,43 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				aux = JOptionPane.showInputDialog("Qual o motivo do feedback?" 
-												+ "\n1. Tempo"
-												+ "\n2. Serviços"
-												+ "\n3. Problemas"
-												+ "\n4. Atendimentos"
-												+ "\n5. Dúvidas");
-				opcFeedback = Integer.parseInt(aux);
 				try {
 					//Tempo
-					tempo = JOptionPane.showInputDialog("Digite seu feedback");
+					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
 					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + tempo 
+													+ "\nSeu feedback: " + tempo 
 													+ "\n1. Sim "
 													+ "\n2. Não");
 					confirFeedback = Integer.parseInt(aux);
 					
 					//Serviços
-					servicos = JOptionPane.showInputDialog("Digite seu feedback");
+					servicos = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
 					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + servicos 
+													+ "\nSeu feedback: " + servicos 
 													+ "\n1. Sim "
 													+ "\n2. Não");
 					confirFeedback = Integer.parseInt(aux);
 					
 					//Problemas
-					problemas = JOptionPane.showInputDialog("Digite seu feedback");
+					problemas = JOptionPane.showInputDialog("Digite seu feedback para problemas");
 					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + problemas 
+													+ "\nSeu feedback: " + problemas 
 													+ "\n1. Sim "
 													+ "\n2. Não");
 					confirFeedback = Integer.parseInt(aux);
 				
 					//Atendimentos
-					atendimentos = JOptionPane.showInputDialog("Digite seu feedback");
+					atendimentos = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
 					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + atendimentos 
+													+ "\nSeu feedback: " + atendimentos 
 													+ "\n1. Sim "
 													+ "\n2. Não");
 					confirFeedback = Integer.parseInt(aux);
 					
 					//Dúvidas
-					duvidas = JOptionPane.showInputDialog("Digite seu feedback");
+					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
 					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + duvidas 
+													+ "\nSeu feedback: " + duvidas 
 													+ "\n1. Sim "
 													+ "\n2. Não");
 					confirFeedback = Integer.parseInt(aux);
@@ -220,18 +213,15 @@ public class UsaTechnobike {
 				
 			//Encerrar
 			case 5:
-				escolha = JOptionPane.showInputDialog("Deseja continuar? ");
-				if (escolha.equalsIgnoreCase("Sim")) {
-					JOptionPane.showMessageDialog(null, "Voltando ao menu");
-				} else {
-					JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
-				}
+				JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 				break;
 				
 			//Opção inválida
 			default:
 				JOptionPane.showMessageDialog(null, "Digite uma opção válida");
 			}
+			escolha = JOptionPane.showInputDialog("Deseja continuar? ");
 		}
+		JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 	}
 }

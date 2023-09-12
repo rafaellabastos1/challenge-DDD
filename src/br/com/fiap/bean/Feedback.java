@@ -75,39 +75,30 @@ public class Feedback {
 	
 	//Métodos
 	public void enviarFeedback() {
-		if (opcFeedback == 1) {
-			if (confirFeedback == 1) {
-				JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-			} else {
-				JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-			}
-		} else if (opcFeedback == 2) {
-			if (confirFeedback == 1) {
-				JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-			} else {
-				JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-			}
-		} else if (opcFeedback == 3) {
-			if (confirFeedback == 1) {
-				JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-			} else {
-				JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-			}
-		} else if (opcFeedback == 4) {
-			if (confirFeedback == 1) {
-				JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-			} else {
-				JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-			}
-		} else if (opcFeedback == 5) {
-			if (confirFeedback == 1) {
-				JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
-			} else {
-				JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
-			}
+		if (confirFeedback == 1) {
+			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
 		} else {
-			JOptionPane.showMessageDialog(null, "Digite uma opção válida");
-			confirFeedback = 2;
+			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
+		}
+		if (confirFeedback == 1) {
+			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
+		} else {
+			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
+		}
+		if (confirFeedback == 1) {
+			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
+		} else {
+			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
+		}
+		if (confirFeedback == 1) {
+			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
+		} else {
+			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
+		}
+		if (confirFeedback == 1) {
+			JOptionPane.showMessageDialog(null, "Feedback adicionado com sucesso!");
+		} else {
+			JOptionPane.showInternalMessageDialog(null, "Faça o feedback novamente.");
 		}
 	}
 }

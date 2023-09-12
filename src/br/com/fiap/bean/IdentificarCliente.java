@@ -28,8 +28,5 @@ public class IdentificarCliente {
 		} else {
 			JOptionPane.showMessageDialog(null, "CPF não encontrado. Faça seu cadastro e contrate um seguro para sua bike!");
 		}
-	}
-	
-	
-	
+	}s
 }

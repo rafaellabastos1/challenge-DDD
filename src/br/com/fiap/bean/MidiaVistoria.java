@@ -120,5 +120,4 @@ public class MidiaVistoria {
 	public void confirmarArquivo(){
 		
 	}
-	
 }
