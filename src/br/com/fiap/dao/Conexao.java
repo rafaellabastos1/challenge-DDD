@@ -2,6 +2,11 @@ package br.com.fiap.dao;
 
 import java.sql.*;
 
+/*** Classe que abre e fecha conexão com o banco de dados SQL Developer
+ * @author Douglas Araujo
+ * @version 1.0
+ */
+ 
 public class Conexao {
 
 	public static Connection abrirConexao() {

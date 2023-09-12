@@ -11,13 +11,20 @@ import br.com.fiap.bean.MidiaVistoria;
 public class UsaTechnobike {
 
 	public static void main(String[] args) {
-		int opcaoMenu = 0, mostrarStatus, opcSeguro, opcFeedback, confirFeedback;
-		String aux, escolha = "sim", cpf;
+		int opcaoMenu = 0;
+		int mostrarStatus;
 		
-		String bikeInteira, numSerie, roda, freios, guidao, pedais, corrente, clienteBike, bikeFrente, acessorios;
-		String videoBike, videoPartes;
-		Boolean aprovado = false, reprovado = false, emAnalise = true, faltandoDoces = false;
-		String tempo, servicos, problemas, atendimentos, duvidas;
+		int opcSeguro;
+		
+		String aux;
+		String escolha = "sim";
+		String cpf;
+		
+		String tempo;
+		String servicos;
+		String problemas;
+		String atendimentos;
+		String duvidas;
 		
 		IdentificarCliente identCli;
 		MidiaVistoria arqVis;
@@ -61,20 +68,23 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
 				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
 				identCli.encontrarCliente();
 				
 				//Registrar tipo de seguro
+				regSeg = new RegistroSeguro();
+				
 				aux = JOptionPane.showInputDialog("Selecione um tipo de seguro: "
 												+ "\n1- Para ciclistas que pedalam na rua"
-												+ "\n2- Para ciclistas de maratona"
+												+ "\n2- Para ciclistas de maratona" 
 												+ "\n3- Para ciclistas que pedalam em montanhas"
 												+ "\n4- Para ciclistas que pedalam em pedras e rochas"
 												+ "\n5- Para ciclistas que pedalam em terra e mato"
-												+ "\n6- Para ciclistas por hobbie"
-												+ "\n7- Para ciclistas que viajam com a bike");
+												+ "\n6- Para ciclistas por hobbie" 
+												+ "\n7- Para ciclistas que viajam com a bike");				
 				opcSeguro = Integer.parseInt(aux);
 				
-				regSeg = new RegistroSeguro();
+				regSeg.setOpcSeguro(opcSeguro);
 				regSeg.selecionaSeguro();
 				
 				//Receber as mídias da vistoria
@@ -91,37 +101,24 @@ public class UsaTechnobike {
 			            						+ "\n-Foto dos acessórios (se for visível)"
 			            						+ "\n-Vídeo mostrando a bike completa"
 			            						+ "\n-Vídeo mostrando com mais ênfase cada ponto chave que foi tirado foto");
-				JOptionPane.showMessageDialog(null, "\nObservação: neste momento, como ainda não é possível enviar fotos e vídeos," 
-													+ "essa parte não é totalmente funcional");
 				
 				JOptionPane.showMessageDialog(null, "Aviso: ainda não é possível enviar, de fato, arquivos");
-				bikeInteira = JOptionPane.showInputDialog("Envie a foto da bike inteira: "
-											+ "(digite ok para confirmar o envio)");
-				numSerie = JOptionPane.showInputDialog("Envie a foto do número de série: "
-											+ "(digite ok para confirmar o envio)");
-				roda = JOptionPane.showInputDialog("Envie a foto das rodas: "
-											+ "(digite ok para confirmar o envio)");
-				freios = JOptionPane.showInputDialog("Envie a foto dos freios: "
-											+ "(digite ok para confirmar o envio)");
-				guidao = JOptionPane.showInputDialog("Envie a foto do guidão: "
-											+ "(digite ok para confirmar o envio)");
-				pedais = JOptionPane.showInputDialog("Envie a foto dos pedais: "
-											+ "(digite ok para confirmar o envio)");
-				corrente = JOptionPane.showInputDialog("Envie a foto da corrente: "
-											+ "(digite ok para confirmar o envio)");
-				clienteBike = JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "
-											+ "(digite ok para confirmar o envio)");
-				bikeFrente = JOptionPane.showInputDialog("Envie uma foto da bike de frente: "
-											+ "(digite ok para confirmar o envio)");
-				acessorios = JOptionPane.showInputDialog("Envie uma foto dos acessórios: "
-											+ "(digite ok para confirmar o envio)");
-				videoBike = JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "
-											+ "(digite ok para confirmar o envio)");
-				videoPartes = JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "
-											+ "(digite ok para confirmar o envio)");
 				
 				arqVis = new MidiaVistoria();
-				arqVis.confirmarArquivo();
+				
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da bike inteira: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do número de série: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto das rodas: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos freios: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do guidão: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos pedais: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da corrente: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto da bike de frente: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto dos acessórios: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "));
+				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "));
+				
 				
 				//Segmento
 				JOptionPane.showMessageDialog(null, "Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status" 
@@ -150,6 +147,7 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
 				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
 				identCli.encontrarCliente();
 				
 				//Status da vistoria
@@ -161,56 +159,36 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				aux = JOptionPane.showInputDialog("Qual o motivo do feedback?" 
-												+ "\n1. Tempo"
-												+ "\n2. Serviços"
-												+ "\n3. Problemas"
-												+ "\n4. Atendimentos"
-												+ "\n5. Dúvidas");
-				opcFeedback = Integer.parseInt(aux);
+				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+
+				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
+				identCli.encontrarCliente();
+				
 				try {
 					//Tempo
-					tempo = JOptionPane.showInputDialog("Digite seu feedback");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + tempo 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
+					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
 					
 					//Serviços
-					servicos = JOptionPane.showInputDialog("Digite seu feedback");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + servicos 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
+					servicos = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
 					
 					//Problemas
-					problemas = JOptionPane.showInputDialog("Digite seu feedback");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + problemas 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
-				
+					problemas = JOptionPane.showInputDialog("Digite seu feedback para problemas");
+
 					//Atendimentos
-					atendimentos = JOptionPane.showInputDialog("Digite seu feedback");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + atendimentos 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
-					
+					atendimentos = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
+
 					//Dúvidas
-					duvidas = JOptionPane.showInputDialog("Digite seu feedback");
-					aux = JOptionPane.showInputDialog("O feedback está correto?" 
-													+ "\n" + duvidas 
-													+ "\n1. Sim "
-													+ "\n2. Não");
-					confirFeedback = Integer.parseInt(aux);
+					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
 					
 					opiniao = new Feedback();
+					opiniao.setTempo(tempo);
+					opiniao.setServicos(servicos);
+					opiniao.setProblemas(problemas);
+					opiniao.setAtendimentos(atendimentos);
+					opiniao.setDuvidas(duvidas);
 					opiniao.enviarFeedback();
+					
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
@@ -220,18 +198,15 @@ public class UsaTechnobike {
 				
 			//Encerrar
 			case 5:
-				escolha = JOptionPane.showInputDialog("Deseja continuar? ");
-				if (escolha.equalsIgnoreCase("Sim")) {
-					JOptionPane.showMessageDialog(null, "Voltando ao menu");
-				} else {
-					JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
-				}
+				JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 				break;
 				
 			//Opção inválida
 			default:
 				JOptionPane.showMessageDialog(null, "Digite uma opção válida");
 			}
+			escolha = JOptionPane.showInputDialog("Deseja continuar? ");
 		}
+		JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 	}
 }
