@@ -61,6 +61,7 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
 				identCli = new IdentificarCliente();
+				identCli.setCpf(cpf);
 				identCli.encontrarCliente();
 				
 				//Registrar tipo de seguro
