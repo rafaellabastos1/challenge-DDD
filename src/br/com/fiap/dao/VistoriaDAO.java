@@ -5,10 +5,10 @@ import java.sql.*;
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
  * Atributos sobre o cpf informado pelo usuário
  * @author Douglas Araujo
- * @version 1.0
+ * @author Rafaella Bastos
+ * @version 2.0
  */
 
-import br.com.fiap.bean.IdentificarCliente;
 
 public class VistoriaDAO {
 	private Connection con;
