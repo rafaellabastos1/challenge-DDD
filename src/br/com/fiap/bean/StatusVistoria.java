@@ -55,8 +55,8 @@ public class StatusVistoria {
 	//Métodos
 	
 	/*** Método resultado que verifica o atual status da vistoria
-	 * No momento, sempre retornará que está em análise, já que ainda não tem como analisar as fotos
 	 * @author Luiz Fillipe
+	 * @author Rafaella Bastos
 	 */
 	
 	public void resultado() {

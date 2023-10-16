@@ -26,7 +26,6 @@ public class UsaTechnobike {
 		String atendimentos;
 		String duvidas;
 		
-		IdentificarCliente identCli;
 		MidiaVistoria arqVis;
 		RegistroSeguro regSeg;
 		StatusVistoria andamento;
