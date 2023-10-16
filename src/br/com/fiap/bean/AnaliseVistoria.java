@@ -6,33 +6,15 @@ package br.com.fiap.bean;
  * @version 1.0
  */
 
-public class Vistoria {
-	private IdentificarCliente cliente;
-	private RegistroSeguro seguro;
+public class AnaliseVistoria {
 	private MidiaVistoria fotos;
 	
 	//Construtor vazio
-	public Vistoria() {
+	public AnaliseVistoria() {
 		
 	}
 
 	//Getters e setters
-	public IdentificarCliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(IdentificarCliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public RegistroSeguro getSeguro() {
-		return seguro;
-	}
-
-	public void setSeguro(RegistroSeguro seguro) {
-		this.seguro = seguro;
-	}
-
 	public MidiaVistoria getFotos() {
 		return fotos;
 	}
@@ -48,8 +30,6 @@ public class Vistoria {
 	 * @author Luiz Fillipe
 	 */
 	public void analisarFotos() {
-		cliente = new IdentificarCliente();
-		seguro = new RegistroSeguro();
 		fotos = new MidiaVistoria();
 	}
 }
