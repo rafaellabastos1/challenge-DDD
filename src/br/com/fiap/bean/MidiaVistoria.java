@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 /*** Classe com atributos e métodos sobre os arquivos que serão enviados para análise
  * @author Igor Ribeiro
+ * @author Rafaella Bastos
  * @version 2.0
  */
 
@@ -126,6 +127,7 @@ public class MidiaVistoria {
 	/*** Método confirmar arquivo que confirma se o usuário enviou ou não
 	 * No momento ainda não é possível enviar, de fato, os arquivos
 	 * @author Igor Ribeiro
+	 * @author Rafaella Bastos
 	 */
 	
 	//Método

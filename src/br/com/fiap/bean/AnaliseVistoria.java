@@ -3,7 +3,8 @@ package br.com.fiap.bean;
 /*** Classe com atributos e métodos que analisará as fotos enviadas para a vistoria e retornará o resultado
  * Atributos sobre as informações necessárias para realizar a vistoria que estão presentes em outras classes
  * @author Luiz Fillipe
- * @version 1.0
+ * @author Rafaella Bastos
+ * @version 2.0
  */
 
 public class AnaliseVistoria {
