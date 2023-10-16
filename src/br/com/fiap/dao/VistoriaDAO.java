@@ -10,10 +10,10 @@ import java.sql.*;
 
 import br.com.fiap.bean.IdentificarCliente;
 
-public class CpfDAO {
+public class VistoriaDAO {
 	private Connection con;
 
-	public CpfDAO(Connection con) {
+	public VistoriaDAO(Connection con) {
 		setCon(con);
 	}
 
