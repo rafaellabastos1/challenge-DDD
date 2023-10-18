@@ -3,11 +3,11 @@ package br.com.fiap.view;
 import javax.swing.JOptionPane;
 
 
+import br.com.fiap.controller.ClienteController;
+import br.com.fiap.model.bean.Feedback;
+import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 import br.com.fiap.model.bean.StatusVistoria;
-import br.com.fiap.model.bean.Feedback;
-//import br.com.fiap.bean.IdentificarCliente;
-import br.com.fiap.model.bean.MidiaVistoria;
 
 public class UsaTechnobike {
 
@@ -31,7 +31,7 @@ public class UsaTechnobike {
 		RegistroSeguro regSeg;
 		StatusVistoria andamento;
 		Feedback opiniao;
-		
+		ClienteController cliente;
 		
 		while (escolha.equalsIgnoreCase("sim")) {	
 			try {
@@ -66,8 +66,9 @@ public class UsaTechnobike {
 			case 2:
 				//Identificar cliente
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
-				
-				//adicionar método de buca
+				cliente = new ClienteController();
+				System.out.println(cliente.insereCliente(cpf));
+
 				
 				//Registrar tipo de seguro
 				regSeg = new RegistroSeguro();
@@ -142,10 +143,11 @@ public class UsaTechnobike {
 			//Conferir status da vistoria
 			case 3:
 				//Identificar cliente
-				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+				//cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
-				//adicionar método de buca
-				
+				//cliente = new ClienteController();
+				//System.out.println(cliente.insereCliente(cpf));
+
 				//Status da vistoria
 				andamento = new StatusVistoria();
 				andamento.resultado();
@@ -155,9 +157,10 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 
-				//adicionar método de buca
+				///cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+				//cliente = new ClienteController();
+				//System.out.println(cliente.insereCliente(cpf));
 				
 				try {
 					//Tempo

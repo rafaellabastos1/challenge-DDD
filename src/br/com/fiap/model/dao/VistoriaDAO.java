@@ -1,8 +1,11 @@
 package br.com.fiap.model.dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import br.com.fiap.model.bean.Cliente;
 
-import br.com.fiap.model.bean.Cadastro;
+
 
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
  * Atributos sobre o cpf informado pelo usuário
@@ -15,9 +18,12 @@ import br.com.fiap.model.bean.Cadastro;
 public class VistoriaDAO {
 	private Connection con;
 
+	//Construtor com passagem de parâmetro
 	public VistoriaDAO(Connection con) {
-		setCon(con);
+		this.con = con;
 	}
+
+	//Getters e setters
 
 	public Connection getCon() {
 		return con;
@@ -26,16 +32,17 @@ public class VistoriaDAO {
 	public void setCon(Connection con) {
 		this.con = con;
 	}
-
-	public String inserir(Cadastro cadastro) {
-		String sql = "insert into cadastro(cpf) values(?)";
+	
+	public String inserir(Cliente cliente) {
+		String sql = "insert into challenge(cpf)values(?)";
 		try {
+			//PreparedStatement ps = getCon().prepareStatement(sql);
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setInt(1, cadastro.getCpf());
+			ps.setString(1, cliente.getCpf());
 			if (ps.executeUpdate() > 0) {
-				return "CPF inserido com sucesso!";
+				return "inserido com sucesso";
 			} else {
-				return "Erro ao inserir CPF...";
+				return "erro ao inserir";
 			}
 		} catch (SQLException e) {
 			return e.getMessage();
