@@ -2,6 +2,7 @@ package br.com.fiap.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import br.com.fiap.model.bean.Cliente;
 
@@ -15,8 +16,9 @@ import br.com.fiap.model.bean.Cliente;
  */
 
 
-public class VistoriaDAO {
+public class VistoriaDAO implements IDAO{
 	private Connection con;
+	private Cliente cliente;
 
 	//Construtor com passagem de parâmetro
 	public VistoriaDAO(Connection con) {
@@ -33,7 +35,8 @@ public class VistoriaDAO {
 		this.con = con;
 	}
 	
-	public String inserir(Cliente cliente) {
+	public String inserir(Object obj) {
+		cliente = (Cliente) obj;
 		String sql = "insert into challenge(cpf)values(?)";
 		try {
 			//PreparedStatement ps = getCon().prepareStatement(sql);
@@ -43,6 +46,25 @@ public class VistoriaDAO {
 				return "inserido com sucesso";
 			} else {
 				return "erro ao inserir";
+			}
+		} catch (SQLException e) {
+			return e.getMessage();
+		}
+	}
+	public String identificarCliente(String cpf) throws SQLException{
+		String sql = "select * from challenge where cpf = ?";
+		String sucesso = "Cliente encontrado!";
+		
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ps.setString(1, cpf);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return sucesso;
+			}
+			else {
+				return null;
 			}
 		} catch (SQLException e) {
 			return e.getMessage();

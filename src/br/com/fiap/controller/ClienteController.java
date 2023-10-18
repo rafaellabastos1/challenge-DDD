@@ -1,6 +1,7 @@
 package br.com.fiap.controller;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import br.com.fiap.model.bean.Cliente;
 import br.com.fiap.model.dao.Conexao;
@@ -16,5 +17,18 @@ public class ClienteController {
 		resultado = vd.inserir(cl);
 		Conexao.fecharConexao(con);
 		return resultado;
+	}
+	public String buscarCliente(String cpf) throws ClassNotFoundException, SQLException{
+		String resultado = "";
+		Connection con = Conexao.abrirConexao();
+		VistoriaDAO vistd = new VistoriaDAO(con);
+		resultado = vistd.identificarCliente(cpf);
+		Conexao.fecharConexao(con);
+		if (resultado != null ) {
+			return resultado;
+		} else {
+			return "Cliente não encontrado";
+
+		}
 	}
 }
