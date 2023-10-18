@@ -1,4 +1,4 @@
-package br.com.fiap.bean;
+package br.com.fiap.model.bean;
 
 /*** Classe com atributos e métodos que analisará as fotos enviadas para a vistoria e retornará o resultado
  * Atributos sobre as informações necessárias para realizar a vistoria que estão presentes em outras classes
