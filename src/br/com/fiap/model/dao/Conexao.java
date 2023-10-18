@@ -1,4 +1,4 @@
-package br.com.fiap.dao;
+package br.com.fiap.model.dao;
 
 import java.sql.*;
 
@@ -15,8 +15,8 @@ public class Conexao {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin@oracle.fiap.com.br:1521:ORCL";
-			final String USER = "rm552425";
-			final String PASS = "140904";
+			final String USER = "rm99519";
+			final String PASS = "010205";
 			con = DriverManager.getConnection(url, USER, PASS);
 			System.out.println("Conexão Aberta!");
 

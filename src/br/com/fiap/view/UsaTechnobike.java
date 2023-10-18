@@ -1,12 +1,13 @@
-package br.com.fiap.main;
+package br.com.fiap.view;
 
 import javax.swing.JOptionPane;
 
-import br.com.fiap.bean.RegistroSeguro;
-import br.com.fiap.bean.StatusVistoria;
-import br.com.fiap.bean.Feedback;
-import br.com.fiap.bean.IdentificarCliente;
-import br.com.fiap.bean.MidiaVistoria;
+
+import br.com.fiap.model.bean.RegistroSeguro;
+import br.com.fiap.model.bean.StatusVistoria;
+import br.com.fiap.model.bean.Feedback;
+//import br.com.fiap.bean.IdentificarCliente;
+import br.com.fiap.model.bean.MidiaVistoria;
 
 public class UsaTechnobike {
 
@@ -66,9 +67,7 @@ public class UsaTechnobike {
 				//Identificar cliente
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
-				identCli = new IdentificarCliente();
-				identCli.setCpf(cpf);
-				identCli.encontrarCliente();
+				//adicionar método de buca
 				
 				//Registrar tipo de seguro
 				regSeg = new RegistroSeguro();
@@ -145,9 +144,7 @@ public class UsaTechnobike {
 				//Identificar cliente
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				
-				identCli = new IdentificarCliente();
-				identCli.setCpf(cpf);
-				identCli.encontrarCliente();
+				//adicionar método de buca
 				
 				//Status da vistoria
 				andamento = new StatusVistoria();
@@ -160,9 +157,7 @@ public class UsaTechnobike {
 			case 4: 
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 
-				identCli = new IdentificarCliente();
-				identCli.setCpf(cpf);
-				identCli.encontrarCliente();
+				//adicionar método de buca
 				
 				try {
 					//Tempo

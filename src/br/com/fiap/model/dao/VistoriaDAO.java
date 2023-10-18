@@ -1,6 +1,8 @@
-package br.com.fiap.dao;
+package br.com.fiap.model.dao;
 
 import java.sql.*;
+
+import br.com.fiap.model.bean.Cadastro;
 
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
  * Atributos sobre o cpf informado pelo usuário
@@ -25,11 +27,11 @@ public class VistoriaDAO {
 		this.con = con;
 	}
 
-	public String inserir(IdentificarCliente ic) {
-		String sql = "insert into ic(cpf)values(?)";
+	public String inserir(Cadastro cadastro) {
+		String sql = "insert into cadastro(cpf) values(?)";
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setString(1, ic.getCpf());
+			ps.setInt(1, cadastro.getCpf());
 			if (ps.executeUpdate() > 0) {
 				return "CPF inserido com sucesso!";
 			} else {
