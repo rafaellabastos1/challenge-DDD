@@ -2,6 +2,7 @@ package br.com.fiap.view;
 
 import javax.swing.JOptionPane;
 
+
 import br.com.fiap.controller.ClienteController;
 import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
@@ -67,6 +68,7 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				cliente = new ClienteController();
 				System.out.println(cliente.insereCliente(cpf));
+
 				
 				//Registrar tipo de seguro
 				regSeg = new RegistroSeguro();
@@ -145,7 +147,7 @@ public class UsaTechnobike {
 				
 				//cliente = new ClienteController();
 				//System.out.println(cliente.insereCliente(cpf));
-				
+
 				//Status da vistoria
 				andamento = new StatusVistoria();
 				andamento.resultado();
@@ -155,8 +157,8 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				///cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 
+				///cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				//cliente = new ClienteController();
 				//System.out.println(cliente.insereCliente(cpf));
 				

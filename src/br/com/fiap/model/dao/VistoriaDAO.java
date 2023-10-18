@@ -3,8 +3,9 @@ package br.com.fiap.model.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 import br.com.fiap.model.bean.Cliente;
+
+
 
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
  * Atributos sobre o cpf informado pelo usuário
@@ -23,6 +24,7 @@ public class VistoriaDAO {
 	}
 
 	//Getters e setters
+
 	public Connection getCon() {
 		return con;
 	}
