@@ -1,5 +1,7 @@
 package br.com.fiap.view;
 
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 
@@ -143,10 +145,22 @@ public class UsaTechnobike {
 			//Conferir status da vistoria
 			case 3:
 				//Identificar cliente
-				//cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+				try {
+					String encontrarCpf = "Cliente não encontrado";
+					while (encontrarCpf == "Cliente não encontrado") {
+						cliente = new ClienteController();
+						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						encontrarCpf = cliente.buscarCliente(cpf);
+						System.out.println(encontrarCpf);
+						JOptionPane.showMessageDialog(null, encontrarCpf);
+					}
+				} catch (SQLException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				 catch (ClassNotFoundException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 				
-				//cliente = new ClienteController();
-				//System.out.println(cliente.insereCliente(cpf));
 
 				//Status da vistoria
 				andamento = new StatusVistoria();
@@ -157,12 +171,16 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-
-				///cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
-				//cliente = new ClienteController();
-				//System.out.println(cliente.insereCliente(cpf));
-				
 				try {
+					String encontrarCpf = "Cliente não encontrado";
+					while (encontrarCpf == "Cliente não encontrado") {
+						cliente = new ClienteController();
+						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						encontrarCpf = cliente.buscarCliente(cpf);
+						System.out.println(encontrarCpf);
+						JOptionPane.showMessageDialog(null, encontrarCpf);
+					}
+					
 					//Tempo
 					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
 					
@@ -186,7 +204,14 @@ public class UsaTechnobike {
 					opiniao.setDuvidas(duvidas);
 					opiniao.enviarFeedback();
 					
-				} catch (Exception e) {
+				}
+				catch (SQLException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				 catch (ClassNotFoundException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				

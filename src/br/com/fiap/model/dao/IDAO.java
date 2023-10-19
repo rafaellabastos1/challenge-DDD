@@ -4,5 +4,5 @@ import java.sql.SQLException;
 
 public interface IDAO {
 	public String inserir(Object obj) throws SQLException;
-	public String identificarCliente(Object obj) throws SQLException;
+	public String identificarCliente(String chave) throws SQLException;
 }
