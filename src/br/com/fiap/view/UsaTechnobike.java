@@ -1,6 +1,9 @@
 package br.com.fiap.view;
 
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
+
 
 import br.com.fiap.controller.ClienteController;
 import br.com.fiap.model.bean.Feedback;
@@ -25,6 +28,18 @@ public class UsaTechnobike {
 		String problemas;
 		String atendimentos;
 		String duvidas;
+		String bikeInteira;
+		String numSerie;
+		String roda;
+		String freios;
+		String guidao;
+		String pedais;
+		String corrente;
+		String clienteBike;
+		String bikeFrente;
+		String acessorios;
+		String videoBike;
+		String videoPartes;
 		
 		MidiaVistoria arqVis;
 		RegistroSeguro regSeg;
@@ -67,6 +82,7 @@ public class UsaTechnobike {
 				cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
 				cliente = new ClienteController();
 				System.out.println(cliente.insereCliente(cpf));
+
 				
 				//Registrar tipo de seguro
 				regSeg = new RegistroSeguro();
@@ -103,19 +119,34 @@ public class UsaTechnobike {
 				
 				arqVis = new MidiaVistoria();
 				
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da bike inteira: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do número de série: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto das rodas: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos freios: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto do guidão: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto dos pedais: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie a foto da corrente: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto da bike de frente: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie uma foto dos acessórios: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "));
-				arqVis.confirmarArquivo(JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "));
+				arqVis.confirmarArquivo(bikeInteira = JOptionPane.showInputDialog("Envie a foto da bike inteira: "));
+				arqVis.confirmarArquivo(numSerie = JOptionPane.showInputDialog("Envie a foto do número de série: "));
+				arqVis.confirmarArquivo(roda = JOptionPane.showInputDialog("Envie a foto das rodas: "));
+				arqVis.confirmarArquivo(freios = JOptionPane.showInputDialog("Envie a foto dos freios: "));
+				arqVis.confirmarArquivo(guidao = JOptionPane.showInputDialog("Envie a foto do guidão: "));
+				arqVis.confirmarArquivo(pedais = JOptionPane.showInputDialog("Envie a foto dos pedais: "));
+				arqVis.confirmarArquivo(corrente = JOptionPane.showInputDialog("Envie a foto da corrente: "));
+				arqVis.confirmarArquivo(clienteBike =JOptionPane.showInputDialog("Envie uma foto sua junto com a bike: "));
+				arqVis.confirmarArquivo(bikeFrente = JOptionPane.showInputDialog("Envie uma foto da bike de frente: "));
+				arqVis.confirmarArquivo(acessorios = JOptionPane.showInputDialog("Envie uma foto dos acessórios: "));
+				arqVis.confirmarArquivo(videoBike = JOptionPane.showInputDialog("Envie um vídeo mostrando a bike no geral: "));
+				arqVis.confirmarArquivo(videoPartes = JOptionPane.showInputDialog("Envie um vídeo completo da bike mostrando todas as partes ditas anteriormente: "));
 				
+				arqVis.setBikeInteira(bikeInteira);
+				arqVis.setNumSerie(numSerie);
+				arqVis.setRoda(roda);
+				arqVis.setFreios(freios);
+				arqVis.setGuidao(guidao);
+				arqVis.setPedais(pedais);
+				arqVis.setCorrente(corrente);
+				arqVis.setClienteBike(clienteBike);
+				arqVis.setBikeFrente(bikeFrente);
+				arqVis.setAcessorios(acessorios);
+				arqVis.setVideoBike(videoBike);
+				arqVis.setVideoPartes(videoPartes);
+				
+				
+				System.out.println(cliente.insereDadosVistoria(cpf, opcSeguro, bikeInteira, numSerie, roda, freios, guidao, pedais, corrente, clienteBike, bikeFrente, acessorios, videoBike, videoPartes));
 				
 				//Segmento
 				JOptionPane.showMessageDialog(null, "Os seus dados foram enviados para vistoria. Você pode acompanhar o atual status" 
@@ -141,11 +172,23 @@ public class UsaTechnobike {
 			//Conferir status da vistoria
 			case 3:
 				//Identificar cliente
-				//cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+				try {
+					String encontrarCpf = "Cliente não encontrado";
+					while (encontrarCpf == "Cliente não encontrado") {
+						cliente = new ClienteController();
+						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						encontrarCpf = cliente.buscarCliente(cpf);
+						System.out.println(encontrarCpf);
+						JOptionPane.showMessageDialog(null, encontrarCpf);
+					}
+				} catch (SQLException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				 catch (ClassNotFoundException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 				
-				//cliente = new ClienteController();
-				//System.out.println(cliente.insereCliente(cpf));
-				
+
 				//Status da vistoria
 				andamento = new StatusVistoria();
 				andamento.resultado();
@@ -155,12 +198,16 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				///cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
-
-				//cliente = new ClienteController();
-				//System.out.println(cliente.insereCliente(cpf));
-				
 				try {
+					String encontrarCpf = "Cliente não encontrado";
+					while (encontrarCpf == "Cliente não encontrado") {
+						cliente = new ClienteController();
+						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						encontrarCpf = cliente.buscarCliente(cpf);
+						System.out.println(encontrarCpf);
+						JOptionPane.showMessageDialog(null, encontrarCpf);
+					}
+					
 					//Tempo
 					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
 					
@@ -184,7 +231,14 @@ public class UsaTechnobike {
 					opiniao.setDuvidas(duvidas);
 					opiniao.enviarFeedback();
 					
-				} catch (Exception e) {
+				}
+				catch (SQLException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				 catch (ClassNotFoundException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+				catch (Exception e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				
