@@ -9,10 +9,10 @@ import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 
 
-
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
  * Atributos sobre o cpf informado pelo usuário
  * @author Douglas Araujo
+ * @author Luiz Fillipe
  * @author Rafaella Bastos
  * @version 2.0
  */

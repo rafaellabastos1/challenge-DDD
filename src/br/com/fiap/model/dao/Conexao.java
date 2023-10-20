@@ -10,6 +10,7 @@ import java.sql.*;
 /*** Classe que abre e fecha conexão com o banco de dados SQL Developer
  * @author Douglas Araujo
  * @author Rafaella Bastos
+ * @author Luiz Fillipe
  * @version 2.0
  */
  

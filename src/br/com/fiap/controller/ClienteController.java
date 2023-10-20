@@ -9,6 +9,11 @@ import br.com.fiap.model.bean.RegistroSeguro;
 import br.com.fiap.model.dao.Conexao;
 import br.com.fiap.model.dao.VistoriaDAO;
 
+/*** Classe para controlar as informações passadas pelo usuário
+ * @author Luiz Fillipe
+ * @version 1.0
+ */
+
 public class ClienteController {
 	public String insereCliente(String cpf) {
 		String resultado;
