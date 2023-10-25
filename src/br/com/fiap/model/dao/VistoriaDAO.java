@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import br.com.fiap.model.bean.Cliente;
+import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 
@@ -105,6 +106,28 @@ public class VistoriaDAO implements IDAO{
 			}
 			else {
 				return null;
+			}
+		} catch (SQLException e) {
+			return e.getMessage();
+		}
+	}
+	public String inserirFeedback(Object obj, Feedback fb) throws SQLException {
+		cliente = (Cliente) obj;
+		fb = (Feedback) fb;
+		String sql = "insert into challenge_feedback values(?, ?, ?, ?, ?, ?)";
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ps.setString(1, cliente.getCpf());
+			ps.setString(2, fb.getTempo());
+			ps.setString(3, fb.getServicos());
+			ps.setString(4, fb.getProblemas());
+			ps.setString(5, fb.getAtendimentos());
+			ps.setString(6, fb.getDuvidas());
+			if (ps.executeUpdate() > 0) {
+				return "Feedback inserido com sucesso!";
+			} else {
+				return "Erro ao inserir!";
+
 			}
 		} catch (SQLException e) {
 			return e.getMessage();

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import br.com.fiap.model.bean.Cliente;
+import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 import br.com.fiap.model.dao.Conexao;
@@ -64,5 +65,24 @@ public class ClienteController {
 			return "Cliente não encontrado";
 
 		}
+	}
+	public String insereFeedback(String cpf, String tempo, String servicos, String problemas, String atendimentos, String duvidas) throws SQLException {
+		String resultado;
+		Connection con = Conexao.abrirConexao();
+		VistoriaDAO vd = new VistoriaDAO(con);
+		Cliente cl = new Cliente();
+		Feedback fb = new Feedback();
+		cl.setCpf(cpf);
+		fb.setTempo(tempo);
+		fb.setServicos(servicos);
+		fb.setProblemas(problemas);
+		fb.setAtendimentos(atendimentos);
+		fb.setDuvidas(duvidas);
+		resultado = vd.inserirFeedback(cl, fb);
+		Conexao.fecharConexao(con);
+		return resultado;
+		
+		
+		
 	}
 }
