@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
  */
 
 public class Feedback {
-	private String tempo;
-	private String servicos;
-	private String problemas;
-	private String atendimentos;
-	private String duvidas;
+	private int tempo;
+	private int servicos;
+	private int problemas;
+	private int atendimentos;
+	private int duvidas;
 
 	// Construtor vazio
 	public Feedback() {
@@ -21,45 +21,7 @@ public class Feedback {
 	}
 
 	// Getters e setters
-	public String getTempo() {
-		return tempo;
-	}
-
-	public void setTempo(String tempo) {
-		this.tempo = tempo;
-	}
-
-	public String getServicos() {
-		return servicos;
-	}
-
-	public void setServicos(String servicos) {
-		this.servicos = servicos;
-	}
-
-	public String getProblemas() {
-		return problemas;
-	}
-
-	public void setProblemas(String problemas) {
-		this.problemas = problemas;
-	}
-
-	public String getAtendimentos() {
-		return atendimentos;
-	}
-
-	public void setAtendimentos(String atendimentos) {
-		this.atendimentos = atendimentos;
-	}
-
-	public String getDuvidas() {
-		return duvidas;
-	}
-
-	public void setDuvidas(String duvidas) {
-		this.duvidas = duvidas;
-	}
+	
 	
 	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
 	 * @author Rafaella Bastos
@@ -68,6 +30,46 @@ public class Feedback {
 	//Métodos
 	public void enviarFeedback() {
 		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
+	}
+
+	public int getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(int tempo) {
+		this.tempo = tempo;
+	}
+
+	public int getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(int servicos) {
+		this.servicos = servicos;
+	}
+
+	public int getProblemas() {
+		return problemas;
+	}
+
+	public void setProblemas(int problemas) {
+		this.problemas = problemas;
+	}
+
+	public int getAtendimentos() {
+		return atendimentos;
+	}
+
+	public void setAtendimentos(int atendimentos) {
+		this.atendimentos = atendimentos;
+	}
+
+	public int getDuvidas() {
+		return duvidas;
+	}
+
+	public void setDuvidas(int duvidas) {
+		this.duvidas = duvidas;
 	}
 }
 

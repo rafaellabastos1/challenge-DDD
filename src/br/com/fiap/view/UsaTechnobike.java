@@ -1,6 +1,7 @@
 package br.com.fiap.view;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -25,11 +26,11 @@ public class UsaTechnobike {
 		boolean cpfInvalido = true;
 		int teste;
 		
-		String tempo;
-		String servicos;
-		String problemas;
-		String atendimentos;
-		String duvidas;
+		int tempo;
+		int servicos;
+		int problemas;
+		int atendimentos;
+		int duvidas;
 		String bikeInteira;
 		String numSerie;
 		String roda;
@@ -81,10 +82,10 @@ public class UsaTechnobike {
 			//Iniciar processo de vistoria	
 			case 2:
 				//Identificar cliente
-				try {
+//				try {
 					while (cpfInvalido == true) {
 						cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
-						teste = Integer.parseInt(cpf);
+//						teste = Integer.parseInt(cpf);
 					if (cpf.length() != 11) {
 						JOptionPane.showMessageDialog(null, "Digite um cpf válido!");
 					}else {
@@ -180,10 +181,9 @@ public class UsaTechnobike {
 					}
 					
 					break;
-				} catch (NumberFormatException e) {
-					System.out.println("Digite apenas números!");
-				}
-				break;
+//				} catch (NumberFormatException e) {
+//					System.out.println("Digite apenas números!");
+//				}
 				
 		
 				
@@ -191,13 +191,13 @@ public class UsaTechnobike {
 			case 3:
 				//Identificar cliente
 				try {
-					String encontrarCpf = "Cliente não encontrado";
-					while (encontrarCpf == "Cliente não encontrado") {
+					boolean cpfEncontrado = false;
+					while (cpfEncontrado == false) {
 						cliente = new ClienteController();
 						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
-						encontrarCpf = cliente.buscarCliente(cpf);
-						System.out.println(encontrarCpf);
-						JOptionPane.showMessageDialog(null, encontrarCpf);
+						ArrayList<String> consulta = cliente.buscaCliente(cpf);
+						JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
+						cpfEncontrado = true;
 					}
 				} catch (SQLException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
@@ -221,26 +221,29 @@ public class UsaTechnobike {
 					while (encontrarCpf == "Cliente não encontrado") {
 						cliente = new ClienteController();
 						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
-						encontrarCpf = cliente.buscarCliente(cpf);
+						ArrayList<String> consulta = cliente.buscaCliente(cpf);
+						JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
 						System.out.println(encontrarCpf);
 						JOptionPane.showMessageDialog(null, encontrarCpf);
 					}
 					ClienteController cl = new ClienteController();
 					
 					//Tempo
-					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
+					aux = JOptionPane.showInputDialog("Digite seu feedback para tempo");
+					tempo = Integer.parseInt(aux);
 					
 					//Serviços
-					servicos = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
-					
+					aux = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
+					servicos = Integer.parseInt(aux);
 					//Problemas
-					problemas = JOptionPane.showInputDialog("Digite seu feedback para problemas");
-
+					aux = JOptionPane.showInputDialog("Digite seu feedback para problemas");
+					problemas = Integer.parseInt(aux);
 					//Atendimentos
-					atendimentos = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
-
+					aux = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
+					atendimentos = Integer.parseInt(aux);
 					//Dúvidas
-					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
+					aux = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
+					duvidas = Integer.parseInt(aux);
 					
 					opiniao = new Feedback();
 					opiniao.setTempo(tempo);

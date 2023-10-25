@@ -2,6 +2,7 @@ package br.com.fiap.controller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.fiap.model.bean.Cliente;
 import br.com.fiap.model.bean.Feedback;
@@ -53,20 +54,20 @@ public class ClienteController {
 		
 	}
 	
-	public String buscarCliente(String cpf) throws ClassNotFoundException, SQLException{
-		String resultado = "";
+	public ArrayList<String> buscaCliente(String cpf) throws SQLException, ClassNotFoundException{
+		ArrayList<String> resultado = new ArrayList<>();
 		Connection con = Conexao.abrirConexao();
-		VistoriaDAO vistd = new VistoriaDAO(con);
-		resultado = vistd.identificarCliente(cpf);
+		VistoriaDAO vd = new VistoriaDAO(con);
+		resultado = vd.buscarCliente(cpf);
 		Conexao.fecharConexao(con);
-		if (resultado != null ) {
+		if (resultado != null) {
 			return resultado;
 		} else {
-			return "Cliente não encontrado";
-
+			return null;
 		}
 	}
-	public String insereFeedback(String cpf, String tempo, String servicos, String problemas, String atendimentos, String duvidas) throws SQLException {
+	
+	public String insereFeedback(String cpf, int tempo, int servicos, int problemas, int atendimentos, int duvidas) throws SQLException {
 		String resultado;
 		Connection con = Conexao.abrirConexao();
 		VistoriaDAO vd = new VistoriaDAO(con);
