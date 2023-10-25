@@ -25,17 +25,19 @@ public class ClienteController {
 		Conexao.fecharConexao(con);
 		return resultado;
 	}
-	
+
 	
 	public String insereDadosVistoria(String cpf, int opcSeguro, String bikeInteira, String numSerie, String roda, String freios,
 					String guidao, String pedais, String corrente, String clienteBike, String bikeFrente, String acessorios, String videoBike,
 					String videoPartes) { 
+		
 		String resultado;
 		Connection con = Conexao.abrirConexao();
 		VistoriaDAO vd = new VistoriaDAO(con);
 		Cliente cl = new Cliente();
 		MidiaVistoria mv = new MidiaVistoria();
 		RegistroSeguro rs = new RegistroSeguro();
+		
 		cl.setCpf(cpf);
 		rs.setOpcSeguro(opcSeguro);
 		mv.setBikeInteira(bikeInteira);
@@ -51,11 +53,11 @@ public class ClienteController {
 		mv.setVideoBike(videoBike);
 		mv.setVideoPartes(videoPartes);
 		resultado = vd.inserirDadosVistoria(cl, rs, mv);
+		
 		Conexao.fecharConexao(con);
 		return resultado;
-		
-		
 	}
+	
 	
 	public String buscarCliente(String cpf) throws ClassNotFoundException, SQLException{
 		String resultado = "";
@@ -63,11 +65,11 @@ public class ClienteController {
 		VistoriaDAO vistd = new VistoriaDAO(con);
 		resultado = vistd.identificarCliente(cpf);
 		Conexao.fecharConexao(con);
+		
 		if (resultado != null ) {
 			return resultado;
 		} else {
 			return "Cliente não encontrado";
-
 		}
 	}
 }

@@ -58,7 +58,6 @@ public class StatusVistoria {
 	 * @author Luiz Fillipe
 	 * @author Rafaella Bastos
 	 */
-	
 	public void resultado() {
 		if (faltaDocs == true) {
 			JOptionPane.showMessageDialog(null, "Estão faltando arquivos na vistoria! Olhe novamente");
@@ -70,6 +69,4 @@ public class StatusVistoria {
 			JOptionPane.showMessageDialog(null, "Aguarde um pouco. Seus arquivos estão em análise!");
 		}
 	}
-	
-	
 }

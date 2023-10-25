@@ -57,6 +57,8 @@ public class VistoriaDAO implements IDAO{
 			return e.getMessage();
 		}
 	}
+	
+	
 	public String inserirDadosVistoria(Object obj, RegistroSeguro rs, MidiaVistoria mv) {
 		cliente = (Cliente) obj;
 		midia = (MidiaVistoria) mv;
@@ -90,10 +92,11 @@ public class VistoriaDAO implements IDAO{
 			return e.getMessage();
 		}
 	}
+	
+	
 	public String identificarCliente(String cpf) throws SQLException{
 		String sql = "select count(*) from challenge where cpf = ?";
 		String sucesso = "Cliente encontrado!";
-		
 		
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
@@ -102,8 +105,7 @@ public class VistoriaDAO implements IDAO{
 			
 			if(rs.next()) {
 				return sucesso;
-			}
-			else {
+			} else {
 				return null;
 			}
 		} catch (SQLException e) {

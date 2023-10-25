@@ -29,7 +29,6 @@ public class RegistroSeguro {
 	/*** Método seleciona seguro que recebe o tipo de seguro escolhido pelo usuário e verifica se ele escolheu certo
 	 * @author Rafaella Bastos
 	 */
-
 	public void selecionaSeguro() {
 		int confirTpSeguro = 2;
 
