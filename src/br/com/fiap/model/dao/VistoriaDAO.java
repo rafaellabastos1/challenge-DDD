@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import br.com.fiap.model.bean.Cliente;
+import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 
@@ -92,8 +95,8 @@ public class VistoriaDAO implements IDAO{
 			return e.getMessage();
 		}
 	}
-	
-	
+  
+  
 	public String identificarCliente(String cpf) throws SQLException{
 		String sql = "select count(*) from challenge where cpf = ?";
 		String sucesso = "Cliente encontrado!";

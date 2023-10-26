@@ -2,8 +2,10 @@ package br.com.fiap.controller;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.fiap.model.bean.Cliente;
+import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
 import br.com.fiap.model.dao.Conexao;
@@ -57,13 +59,13 @@ public class ClienteController {
 		Conexao.fecharConexao(con);
 		return resultado;
 	}
-	
+
 	
 	public String buscarCliente(String cpf) throws ClassNotFoundException, SQLException{
 		String resultado = "";
 		Connection con = Conexao.abrirConexao();
-		VistoriaDAO vistd = new VistoriaDAO(con);
-		resultado = vistd.identificarCliente(cpf);
+		VistoriaDAO vd = new VistoriaDAO(con);
+		resultado = vd.buscarCliente(cpf);
 		Conexao.fecharConexao(con);
 		
 		if (resultado != null ) {
@@ -71,5 +73,25 @@ public class ClienteController {
 		} else {
 			return "Cliente não encontrado";
 		}
+	}
+	
+	public String insereFeedback(String cpf, int tempo, int servicos, int problemas, int atendimentos, int duvidas) throws SQLException {
+		String resultado;
+		Connection con = Conexao.abrirConexao();
+		VistoriaDAO vd = new VistoriaDAO(con);
+		Cliente cl = new Cliente();
+		Feedback fb = new Feedback();
+		cl.setCpf(cpf);
+		fb.setTempo(tempo);
+		fb.setServicos(servicos);
+		fb.setProblemas(problemas);
+		fb.setAtendimentos(atendimentos);
+		fb.setDuvidas(duvidas);
+		resultado = vd.inserirFeedback(cl, fb);
+		Conexao.fecharConexao(con);
+		return resultado;
+		
+		
+		
 	}
 }
