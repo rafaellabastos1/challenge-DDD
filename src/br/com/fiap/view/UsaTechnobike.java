@@ -217,14 +217,13 @@ public class UsaTechnobike {
 			//Feedback
 			case 4: 
 				try {
-					String encontrarCpf = "Cliente não encontrado";
-					while (encontrarCpf == "Cliente não encontrado") {
+					boolean cpfEncontrado = false;
+					while (cpfEncontrado == false) {
 						cliente = new ClienteController();
 						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
 						ArrayList<String> consulta = cliente.buscaCliente(cpf);
 						JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
-						System.out.println(encontrarCpf);
-						JOptionPane.showMessageDialog(null, encontrarCpf);
+						cpfEncontrado = true;
 					}
 					ClienteController cl = new ClienteController();
 					
