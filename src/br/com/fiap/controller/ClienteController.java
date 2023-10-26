@@ -11,6 +11,11 @@ import br.com.fiap.model.bean.RegistroSeguro;
 import br.com.fiap.model.dao.Conexao;
 import br.com.fiap.model.dao.VistoriaDAO;
 
+/*** Classe para controlar as informações passadas pelo usuário
+ * @author Luiz Fillipe
+ * @version 1.0
+ */
+
 public class ClienteController {
 	public String insereCliente(String cpf) {
 		String resultado;
@@ -22,17 +27,19 @@ public class ClienteController {
 		Conexao.fecharConexao(con);
 		return resultado;
 	}
-	
+
 	
 	public String insereDadosVistoria(String cpf, int opcSeguro, String bikeInteira, String numSerie, String roda, String freios,
 					String guidao, String pedais, String corrente, String clienteBike, String bikeFrente, String acessorios, String videoBike,
 					String videoPartes) { 
+		
 		String resultado;
 		Connection con = Conexao.abrirConexao();
 		VistoriaDAO vd = new VistoriaDAO(con);
 		Cliente cl = new Cliente();
 		MidiaVistoria mv = new MidiaVistoria();
 		RegistroSeguro rs = new RegistroSeguro();
+		
 		cl.setCpf(cpf);
 		rs.setOpcSeguro(opcSeguro);
 		mv.setBikeInteira(bikeInteira);
@@ -48,22 +55,23 @@ public class ClienteController {
 		mv.setVideoBike(videoBike);
 		mv.setVideoPartes(videoPartes);
 		resultado = vd.inserirDadosVistoria(cl, rs, mv);
+		
 		Conexao.fecharConexao(con);
 		return resultado;
-		
-		
 	}
+
 	
-	public ArrayList<String> buscaCliente(String cpf) throws SQLException, ClassNotFoundException{
-		ArrayList<String> resultado = new ArrayList<>();
+	public String buscarCliente(String cpf) throws ClassNotFoundException, SQLException{
+		String resultado = "";
 		Connection con = Conexao.abrirConexao();
 		VistoriaDAO vd = new VistoriaDAO(con);
 		resultado = vd.buscarCliente(cpf);
 		Conexao.fecharConexao(con);
-		if (resultado != null) {
+		
+		if (resultado != null ) {
 			return resultado;
 		} else {
-			return null;
+			return "Cliente não encontrado";
 		}
 	}
 	

@@ -23,10 +23,10 @@ public class Feedback {
 	// Getters e setters
 	
 	
+	
 	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
 	 * @author Rafaella Bastos
 	 */
-	
 	//Métodos
 	public void enviarFeedback() {
 		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
