@@ -24,7 +24,7 @@ public class UsaTechnobike {
 		String escolha = "sim";
 		String cpf = null;
 		boolean cpfInvalido = true;
-		int teste;
+		int tentativas;
 		
 		int tempo;
 		int servicos;
@@ -51,6 +51,7 @@ public class UsaTechnobike {
 		ClienteController cliente;
 		
 		while (escolha.equalsIgnoreCase("sim")) {	
+			opcaoMenu = 0;
 			try {
 				aux = JOptionPane.showInputDialog("Olá, em que a Technobike pode te ajudar?" 
 												+ "\n1 - Tipos de seguro"
@@ -83,14 +84,23 @@ public class UsaTechnobike {
 			case 2:
 				//Identificar cliente
 //				try {
+					tentativas = 0;
+					cpfInvalido = true;
 					while (cpfInvalido == true) {
 						cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
-//						teste = Integer.parseInt(cpf);
 					if (cpf.length() != 11) {
 						JOptionPane.showMessageDialog(null, "Digite um cpf válido!");
+						tentativas += 1;
 					}else {
 						cpfInvalido = false;
 					}
+					if(tentativas == 3) {
+						cpfInvalido = false;
+					}
+					}
+					if(tentativas == 3) {
+						JOptionPane.showMessageDialog(null, "Limite de tentativas alcançado!");
+						break;
 					}
 					
 					cliente = new ClienteController();
@@ -192,40 +202,105 @@ public class UsaTechnobike {
 				//Identificar cliente
 				try {
 					boolean cpfEncontrado = false;
+					tentativas = 0;
+					cpfInvalido = true;
+					
 					while (cpfEncontrado == false) {
 						cliente = new ClienteController();
-						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						while (cpfInvalido == true) {
+							cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+						if (cpf.length() != 11) {
+							JOptionPane.showMessageDialog(null, "Digite um cpf válido!");
+							tentativas += 1;
+						}else {
+							cpfInvalido = false;
+						}
+						if(tentativas == 3) {
+							cpfInvalido = false;
+						}
+						}
+						
+						if(tentativas == 3) {
+							JOptionPane.showMessageDialog(null, "Limite de tentativas alcançado!");
+							break;
+						}
+						
 						ArrayList<String> consulta = cliente.buscaCliente(cpf);
-						JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
-						cpfEncontrado = true;
+						if (consulta == null) {
+							JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
+							tentativas += 1;
+							break;
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
+							cpfEncontrado = true;
+						}
+						
+						
+						
+						
+						
 					}
+					
+					//Status da vistoria
+					if (cpfEncontrado == true) {
+						andamento = new StatusVistoria();
+						andamento.resultado();
+					}
+					
+					
+					
+					
 				} catch (SQLException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				 catch (ClassNotFoundException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
-				
-
-				//Status da vistoria
-				andamento = new StatusVistoria();
-				andamento.resultado();
-				
-				break;
-				
+					break;
 					
 			//Feedback
 			case 4: 
 				try {
 					boolean cpfEncontrado = false;
+					tentativas = 0;
+					cpfInvalido = true;
+					
 					while (cpfEncontrado == false) {
 						cliente = new ClienteController();
-						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
+						while (cpfInvalido == true) {
+							cpf = JOptionPane.showInputDialog("Informe seu CPF: ");
+						if (cpf.length() != 11) {
+							JOptionPane.showMessageDialog(null, "Digite um cpf válido!");
+							tentativas += 1;
+						}else {
+							cpfInvalido = false;
+						}
+						if(tentativas == 3) {
+							cpfInvalido = false;
+						}
+						}
+						if(tentativas == 3) {
+							JOptionPane.showMessageDialog(null, "Limite de tentativas alcançado!");
+							break;
+						}
+						
 						ArrayList<String> consulta = cliente.buscaCliente(cpf);
-						JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
-						cpfEncontrado = true;
+						if (consulta == null) {
+							JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
+							tentativas += 1;
+							break;
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Cpf encontrado: " + consulta.get(0));
+							cpfEncontrado = true;
+						}
+						
+						
 					}
-					ClienteController cl = new ClienteController();
+					
+					if (cpfEncontrado) {
+						ClienteController cl = new ClienteController();
 					
 					//Tempo
 					aux = JOptionPane.showInputDialog("Digite seu feedback para tempo");
@@ -254,12 +329,8 @@ public class UsaTechnobike {
 					
 					System.out.println(cl.insereFeedback(cpf, tempo, servicos, problemas, atendimentos, duvidas));
 					
-					
-					
-					
-					
-				}
-				catch (SQLException e) {
+					}	
+				} catch (SQLException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 				 catch (ClassNotFoundException e) {
@@ -274,14 +345,16 @@ public class UsaTechnobike {
 				
 			//Encerrar
 			case 5:
-				JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
+				escolha = "não";
 				break;
 				
 			//Opção inválida
 			default:
 				JOptionPane.showMessageDialog(null, "Digite uma opção válida");
 			}
-			escolha = JOptionPane.showInputDialog("Deseja continuar? ");
+			if (escolha != "não") {				
+				escolha = JOptionPane.showInputDialog("Deseja continuar? ");
+			}
 		}
 		JOptionPane.showMessageDialog(null, "Fim de programa, até a próxima");
 	}
