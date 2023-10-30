@@ -61,7 +61,6 @@ public class Feedback {
 		this.duvidas = duvidas;
 	}
 	
-	
 	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
 	 * @author Rafaella Bastos
 	 */

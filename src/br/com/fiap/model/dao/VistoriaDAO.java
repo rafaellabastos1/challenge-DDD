@@ -4,9 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import br.com.fiap.model.bean.Cliente;
+import br.com.fiap.model.bean.Feedback;
 import br.com.fiap.model.bean.MidiaVistoria;
 import br.com.fiap.model.bean.RegistroSeguro;
+
 
 
 /*** Classe com atributos e métodos sobre o cpf informado pelo usuário para procurar no banco de dados
@@ -57,8 +61,6 @@ public class VistoriaDAO implements IDAO{
 			return e.getMessage();
 		}
 	}
-	
-	
 	public String inserirDadosVistoria(Object obj, RegistroSeguro rs, MidiaVistoria mv) {
 		cliente = (Cliente) obj;
 		midia = (MidiaVistoria) mv;
@@ -92,21 +94,37 @@ public class VistoriaDAO implements IDAO{
 			return e.getMessage();
 		}
 	}
-	
-	
-	public String identificarCliente(String cpf) throws SQLException{
-		String sql = "select count(*) from challenge where cpf = ?";
-		String sucesso = "Cliente encontrado!";
-		
+	public ArrayList<String> buscarCliente(String cpf) throws SQLException{
+		String sql = "select * from challenge where cpf=?";
+		ArrayList<String> resul = new ArrayList<String>();
+		PreparedStatement ps = getCon().prepareStatement(sql);
+		ps.setString(1, cpf);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			resul.add(rs.getString(1));
+			return resul;
+		}
+		else {
+			return null;
+		}
+	}
+	public String inserirFeedback(Object obj, Feedback fb) throws SQLException {
+		cliente = (Cliente) obj;
+		fb = (Feedback) fb;
+		String sql = "insert into challenge_feedback values(?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setString(1, cpf);
-			ResultSet rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				return sucesso;
+			ps.setString(1, cliente.getCpf());
+			ps.setInt(2, fb.getTempo());
+			ps.setInt(3, fb.getServicos());
+			ps.setInt(4, fb.getProblemas());
+			ps.setInt(5, fb.getAtendimentos());
+			ps.setInt(6, fb.getDuvidas());
+			if (ps.executeUpdate() > 0) {
+				return "Feedback inserido com sucesso!";
 			} else {
-				return null;
+				return "Erro ao inserir!";
+
 			}
 		} catch (SQLException e) {
 			return e.getMessage();
