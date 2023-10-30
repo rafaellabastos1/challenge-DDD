@@ -21,17 +21,6 @@ public class Feedback {
 	}
 
 	// Getters e setters
-	
-	
-	
-	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
-	 * @author Rafaella Bastos
-	 */
-	//Métodos
-	public void enviarFeedback() {
-		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
-	}
-
 	public int getTempo() {
 		return tempo;
 	}
@@ -70,6 +59,24 @@ public class Feedback {
 
 	public void setDuvidas(int duvidas) {
 		this.duvidas = duvidas;
+	}
+	
+	/*** Método enviar feedback que envia de uma vez os feedbacks dados pelo cliente
+	 * @author Rafaella Bastos
+	 */
+	//Métodos
+	public void enviarFeedback() {
+		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
+	}
+	
+	/*** Método calcular média que faz a média dos feedbacks enviados
+	 * @author Rafaella Bastos
+	 */
+	public void calcularMedia(int tempo, int servicos, int problemas, int atendimento, int duvidas) {
+		int somaFeed = (tempo + servicos + problemas + atendimentos + duvidas);
+		double mediaFeed = (somaFeed/ 5);
+		
+		JOptionPane.showMessageDialog(null, "A sua média de satisfação com a TechnoBike é de " + mediaFeed);
 	}
 }
 
