@@ -9,11 +9,11 @@ import javax.swing.JOptionPane;
  */
 
 public class Feedback {
-	private String tempo;
-	private String servicos;
-	private String problemas;
-	private String atendimentos;
-	private String duvidas;
+	private int tempo;
+	private int servicos;
+	private int problemas;
+	private int atendimentos;
+	private int duvidas;
 
 	// Construtor vazio
 	public Feedback() {
@@ -21,43 +21,43 @@ public class Feedback {
 	}
 
 	// Getters e setters
-	public String getTempo() {
+	public int getTempo() {
 		return tempo;
 	}
 
-	public void setTempo(String tempo) {
+	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
 
-	public String getServicos() {
+	public int getServicos() {
 		return servicos;
 	}
 
-	public void setServicos(String servicos) {
+	public void setServicos(int servicos) {
 		this.servicos = servicos;
 	}
 
-	public String getProblemas() {
+	public int getProblemas() {
 		return problemas;
 	}
 
-	public void setProblemas(String problemas) {
+	public void setProblemas(int problemas) {
 		this.problemas = problemas;
 	}
 
-	public String getAtendimentos() {
+	public int getAtendimentos() {
 		return atendimentos;
 	}
 
-	public void setAtendimentos(String atendimentos) {
+	public void setAtendimentos(int atendimentos) {
 		this.atendimentos = atendimentos;
 	}
 
-	public String getDuvidas() {
+	public int getDuvidas() {
 		return duvidas;
 	}
 
-	public void setDuvidas(String duvidas) {
+	public void setDuvidas(int duvidas) {
 		this.duvidas = duvidas;
 	}
 	
@@ -68,6 +68,16 @@ public class Feedback {
 	//Métodos
 	public void enviarFeedback() {
 		JOptionPane.showMessageDialog(null, "Feedback enviado com sucesso");
+	}
+	
+	/*** Método calcular média que faz a média dos feedbacks enviados
+	 * @author Rafaella Bastos
+	 */
+	public void calcularMedia(int tempo, int servicos, int problemas, int atendimento, int duvidas) {
+		int somaFeed = (tempo + servicos + problemas + atendimentos + duvidas);
+		double mediaFeed = (somaFeed/ 5);
+		
+		JOptionPane.showMessageDialog(null, "A sua média de satisfação com a TechnoBike é de " + mediaFeed);
 	}
 }
 

@@ -19,15 +19,16 @@ public class UsaTechnobike {
 		
 		int opcSeguro;
 		
+		int tempo;
+		int servicos;
+		int problemas;
+		int atendimentos;
+		int duvidas;
+		
 		String aux;
 		String escolha = "sim";
 		String cpf;
 		
-		String tempo;
-		String servicos;
-		String problemas;
-		String atendimentos;
-		String duvidas;
 		String bikeInteira;
 		String numSerie;
 		String roda;
@@ -200,51 +201,32 @@ public class UsaTechnobike {
 					
 			//Feedback
 			case 4: 
-				try {
-					String encontrarCpf = "Cliente não encontrado";
-					while (encontrarCpf == "Cliente não encontrado") {
-						cliente = new ClienteController();
-						cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
-						encontrarCpf = cliente.buscarCliente(cpf);
-						System.out.println(encontrarCpf);
-						JOptionPane.showMessageDialog(null, encontrarCpf);
-					}
-					
 					//Tempo
-					tempo = JOptionPane.showInputDialog("Digite seu feedback para tempo");
+					aux = JOptionPane.showInputDialog("Digite seu feedback para tempo");
+					tempo = Integer.parseInt(aux);
 					
 					//Serviços
-					servicos = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
+					aux = JOptionPane.showInputDialog("Digite seu feedback para serviços prestados");
+					servicos = Integer.parseInt(aux);
 					
 					//Problemas
-					problemas = JOptionPane.showInputDialog("Digite seu feedback para problemas");
-
+					aux = JOptionPane.showInputDialog("Digite seu feedback para problemas");
+					problemas = Integer.parseInt(aux);
+					
 					//Atendimentos
-					atendimentos = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
-
+					aux = JOptionPane.showInputDialog("Digite seu feedback para atendimento");
+					atendimentos = Integer.parseInt(aux);
+					
 					//Dúvidas
-					duvidas = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
+					aux = JOptionPane.showInputDialog("Digite seu feedback para resolução de duvidas");
+					duvidas = Integer.parseInt(aux);
 					
 					opiniao = new Feedback();
-					opiniao.setTempo(tempo);
-					opiniao.setServicos(servicos);
-					opiniao.setProblemas(problemas);
-					opiniao.setAtendimentos(atendimentos);
-					opiniao.setDuvidas(duvidas);
+
 					opiniao.enviarFeedback();
-					
-				}
-				catch (SQLException e) {
-					JOptionPane.showMessageDialog(null, e.getMessage());
-				}
-				 catch (ClassNotFoundException e) {
-					JOptionPane.showMessageDialog(null, e.getMessage());
-				}
-				catch (Exception e) {
-					JOptionPane.showMessageDialog(null, e.getMessage());
-				}
-				
-				break;
+
+					opiniao.calcularMedia(tempo, servicos, problemas, atendimentos, duvidas);
+					break;
 			
 				
 			//Encerrar
